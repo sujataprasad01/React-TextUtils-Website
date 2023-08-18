@@ -1,12 +1,19 @@
 
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import About from './components/About';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 function App() {
@@ -46,12 +53,21 @@ function App() {
     <>
       {/* <Navbar title="Taxtutils" aboutText="About us"></Navbar> */}
       {/* <Navbar></Navbar> */}
+      <Router>
       <Navbar title="Taxtutils" mode={mode} toggleMode={toggleMode}></Navbar>
       <Alert alert={alert}/>
       <div className="container my-3">
-      <TextForm showAlert={showAlert} heading="Enter the Text to analyze" mode={mode}></TextForm>
-      <About mode={mode}  toggleMode={toggleMode} ></About>
+      <Routes>
+          <Route exact path="/about"  element={<About  mode={mode}  toggleMode={toggleMode}/>}>
+          </Route>
+          <Route exact path="/"   element={<TextForm showAlert={showAlert} heading="Enter the Text to analyze" />}>
+          </Route>
+      </Routes> 
+     
+      {/* <About mode={mode}  toggleMode={toggleMode} ></About */}
+      {/* <TextForm showAlert={showAlert} heading="Enter the Text to analyze" mode={mode}></TextForm> */}
       </div>
+      </Router>     
     </>
   );
 }
