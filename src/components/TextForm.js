@@ -36,13 +36,7 @@ export default function TextForm(props) {
         props.showAlert("Converted in reverse order", "success")
 
     }
-      const handleItClick=()=>{
-      let newText=text.italics();
-      setText(newText)
-      props.showAlert("Converted in italic", "success")
-
        
-    }
     const handleCopy=()=>{
         let text=document.getElementById('MyBox');
         text.select();
@@ -69,7 +63,6 @@ export default function TextForm(props) {
             <button className='btn btn-primary mx-1'onClick={handleLoClick}>Convert to Lowercase</button>
             <button className='btn btn-primary mx-1'onClick={handleClClick}>Clear</button>
             <button className='btn btn-primary mx-1'onClick={handleRvClick}>reverse text</button>
-            <button className='btn btn-primary mx-1'onClick={handleItClick}>Italic text</button>
             <button className='btn btn-primary mx-1'onClick={handleCopy}>Copy text</button>
             <button className='btn btn-primary mx-1'onClick={handleExtraSpaces}>Remove Extra Spaces</button>
             
